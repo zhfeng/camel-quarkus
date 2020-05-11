@@ -380,6 +380,16 @@ class BuildProcessor {
             }
         }
 
+        @BuildStep
+        @Record(ExecutionTime.STATIC_INIT)
+        void transacted(CamelRecorder recorder, BeanContainerBuildItem beanContainer,
+                        BuildProducer<CamelRuntimeBeanBuildItem> buildProducer,
+                        Capabilities capabilities) {
+            if (capabilities.isCapabilityPresent(Capabilities.TRANSACTIONS)) {
+                buildProducer.produce(new CamelRuntimeBeanBuildItem());
+            }
+        }
+
         @Record(ExecutionTime.STATIC_INIT)
         @BuildStep
         CamelContextBuildItem context(

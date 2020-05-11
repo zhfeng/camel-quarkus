@@ -154,4 +154,6 @@ public class CamelRecorder {
     public RuntimeValue<FactoryFinderResolver> factoryFinderResolver(RuntimeValue<Builder> builder) {
         return new RuntimeValue<>(builder.getValue().build());
     }
+
+    public RuntimeValue<Camel>
 }
