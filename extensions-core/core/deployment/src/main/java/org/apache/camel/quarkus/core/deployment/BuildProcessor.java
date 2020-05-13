@@ -62,6 +62,7 @@ import org.apache.camel.quarkus.core.deployment.util.PathFilter;
 import org.apache.camel.quarkus.support.common.CamelCapabilities;
 import org.apache.camel.spi.FactoryFinder;
 import org.apache.camel.spi.RestBindingJaxbDataFormatFactory;
+import org.apache.camel.spi.TransactedPolicy;
 import org.apache.camel.spi.TypeConverterLoader;
 import org.apache.camel.spi.TypeConverterRegistry;
 import org.jboss.jandex.ClassInfo;
@@ -70,6 +71,8 @@ import org.jboss.jandex.IndexView;
 import org.jboss.jandex.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.apache.camel.model.TransactedDefinition.PROPAGATION_REQUIRED;
 
 class BuildProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(BuildProcessor.class);
@@ -386,7 +389,10 @@ class BuildProcessor {
                         BuildProducer<CamelRuntimeBeanBuildItem> buildProducer,
                         Capabilities capabilities) {
             if (capabilities.isCapabilityPresent(Capabilities.TRANSACTIONS)) {
-                buildProducer.produce(new CamelRuntimeBeanBuildItem());
+                buildProducer.produce(
+                        new CamelRuntimeBeanBuildItem(
+                                PROPAGATION_REQUIRED, TransactedPolicy.class.getName(),
+                                recorder.getTransactionPolicy(beanContainer.getValue())));
             }
         }
 
