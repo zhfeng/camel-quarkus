@@ -3,16 +3,16 @@
 = MyBatis
 :linkattrs:
 :cq-artifact-id: camel-quarkus-mybatis
-:cq-native-supported: false
-:cq-status: Preview
-:cq-status-deprecation: Preview
+:cq-native-supported: true
+:cq-status: Stable
+:cq-status-deprecation: Stable
 :cq-description: Performs a query, poll, insert, update or delete in a relational database using MyBatis.
 :cq-deprecated: false
 :cq-jvm-since: 1.1.0
-:cq-native-since: n/a
+:cq-native-since: 1.9.0
 
 [.badges]
-[.badge-key]##JVM since##[.badge-supported]##1.1.0## [.badge-key]##Native##[.badge-unsupported]##unsupported##
+[.badge-key]##JVM since##[.badge-supported]##1.1.0## [.badge-key]##Native since##[.badge-supported]##1.9.0##
 
 Performs a query, poll, insert, update or delete in a relational database using MyBatis.
 
@@ -24,6 +24,10 @@ Performs a query, poll, insert, update or delete in a relational database using 
 Please refer to the above links for usage and configuration details.
 
 == Maven coordinates
+
+https://code.quarkus.io/?extension-search=camel-quarkus-mybatis[Create a new project with this extension on code.quarkus.io, window="_blank"]
+
+Or add the coordinates to your existing project:
 
 [source,xml]
 ----

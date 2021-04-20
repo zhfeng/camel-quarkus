@@ -69,6 +69,7 @@ group-04:
   - leveldb
   - minio
   - mongodb
+  - mybatis
 group-05:
   - avro
   - base64
