@@ -16,9 +16,14 @@
 #
 
 version: 2
+
 updates:
   - package-ecosystem: "maven"
     directory: "/"
+    registries-ignore:
+      - apache.snapshots
+      - oss-snapshots-rep
+      - maven-central
     schedule:
       interval: "daily"
     allow:
