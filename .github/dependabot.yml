@@ -17,12 +17,17 @@
 
 version: 2
 
+registries:
+  maven-central:
+    type: maven-repository
+    url: https://repo.maven.apache.org/maven2
+    username: ""
+    password: ""
+
 updates:
   - package-ecosystem: "maven"
     directory: "/"
-    registries-ignore:
-      - apache.snapshots
-      - oss-snapshots-rep
+    registries:
       - maven-central
     schedule:
       interval: "daily"
