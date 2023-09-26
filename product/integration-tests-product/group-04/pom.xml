@@ -33,6 +33,7 @@
     <name>Camel Quarkus :: Integration Tests :: Product :: Group 04</name>
 
     <modules>
+        <module>../../../integration-tests/main-xml-jaxb</module>
         <module>../../../integration-tests/management</module>
         <module>../../../integration-tests/mapstruct</module>
         <module>../../../integration-tests/master</module>
@@ -65,6 +66,7 @@
         <module>../../../integration-tests/validator</module>
         <module>../../../integration-tests/velocity</module>
         <module>../../../integration-tests/vertx-websocket</module>
+        <module>../../../integration-tests/xml-jaxp</module>
         <module>../../../integration-tests/xpath</module>
         <module>../../../integration-tests/xslt-saxon</module>
     </modules>

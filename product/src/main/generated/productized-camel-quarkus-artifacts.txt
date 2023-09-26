@@ -129,6 +129,7 @@ camel-quarkus-http-parent
 camel-quarkus-infinispan
 camel-quarkus-infinispan-deployment
 camel-quarkus-infinispan-parent
+camel-quarkus-integration-test-amqp
 camel-quarkus-integration-test-avro
 camel-quarkus-integration-test-aws2-cw
 camel-quarkus-integration-test-aws2-ddb
@@ -189,6 +190,9 @@ camel-quarkus-integration-test-jackson-protobuf
 camel-quarkus-integration-test-java-joor-dsl
 camel-quarkus-integration-test-jaxb
 camel-quarkus-integration-test-jira
+camel-quarkus-integration-test-jms-artemis-client
+camel-quarkus-integration-test-jms-ibmmq-client
+camel-quarkus-integration-test-jms-qpid-amqp-client
 camel-quarkus-integration-test-jpa
 camel-quarkus-integration-test-jslt
 camel-quarkus-integration-test-jsonpath
@@ -211,11 +215,15 @@ camel-quarkus-integration-test-main-unknown-args-fail
 camel-quarkus-integration-test-main-unknown-args-ignore
 camel-quarkus-integration-test-main-xml-io
 camel-quarkus-integration-test-main-xml-io-with-beans
+camel-quarkus-integration-test-main-xml-jaxb
 camel-quarkus-integration-test-management
 camel-quarkus-integration-test-mapstruct
 camel-quarkus-integration-test-master
 camel-quarkus-integration-test-master-file
 camel-quarkus-integration-test-master-openshift
+camel-quarkus-integration-test-messaging
+camel-quarkus-integration-test-messaging-common
+camel-quarkus-integration-test-messaging-jms
 camel-quarkus-integration-test-micrometer
 camel-quarkus-integration-test-microprofile
 camel-quarkus-integration-test-minio
@@ -254,6 +262,7 @@ camel-quarkus-integration-test-timer
 camel-quarkus-integration-test-validator
 camel-quarkus-integration-test-velocity
 camel-quarkus-integration-test-vertx-websocket
+camel-quarkus-integration-test-xml-jaxp
 camel-quarkus-integration-test-xpath
 camel-quarkus-integration-test-xslt-saxon
 camel-quarkus-integration-test-zip-deflater
@@ -533,6 +542,9 @@ camel-quarkus-xml-io-dsl-parent
 camel-quarkus-xml-jaxb
 camel-quarkus-xml-jaxb-deployment
 camel-quarkus-xml-jaxb-parent
+camel-quarkus-xml-jaxp
+camel-quarkus-xml-jaxp-deployment
+camel-quarkus-xml-jaxp-parent
 camel-quarkus-xpath
 camel-quarkus-xpath-deployment
 camel-quarkus-xpath-parent

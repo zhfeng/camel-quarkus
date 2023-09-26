@@ -40,7 +40,7 @@
         <!-- <module>threadpoolfactory-vertx</module> disabled by cq-prod-maven-plugin:prod-excludes -->
         <module>xml-io-dsl</module>
         <module>xml-jaxb</module>
-        <!-- <module>xml-jaxp</module> disabled by cq-prod-maven-plugin:prod-excludes -->
+        <module>xml-jaxp</module>
         <module>yaml-dsl</module>
         <!-- <module>yaml-io</module> disabled by cq-prod-maven-plugin:prod-excludes -->
     </modules>

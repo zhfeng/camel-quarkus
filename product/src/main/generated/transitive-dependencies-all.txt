@@ -647,11 +647,14 @@ io.quarkus:quarkus-rest-client
 io.quarkus:quarkus-rest-client-config
 io.quarkus:quarkus-rest-client-config-deployment
 io.quarkus:quarkus-rest-client-deployment
+io.quarkus:quarkus-resteasy
 io.quarkus:quarkus-resteasy-common
 io.quarkus:quarkus-resteasy-common-deployment
 io.quarkus:quarkus-resteasy-common-spi
+io.quarkus:quarkus-resteasy-jsonb
 io.quarkus:quarkus-resteasy-reactive-server-spi-deployment
 io.quarkus:quarkus-resteasy-reactive-spi-deployment
+io.quarkus:quarkus-resteasy-server-common
 io.quarkus:quarkus-resteasy-server-common-spi
 io.quarkus:quarkus-scheduler
 io.quarkus:quarkus-scheduler-api
@@ -1453,6 +1456,7 @@ org.apache.camel.quarkus:camel-quarkus-infinispan
 org.apache.camel.quarkus:camel-quarkus-infinispan-deployment
 org.apache.camel.quarkus:camel-quarkus-influxdb
 org.apache.camel.quarkus:camel-quarkus-influxdb-deployment
+org.apache.camel.quarkus:camel-quarkus-integration-test-messaging-common
 org.apache.camel.quarkus:camel-quarkus-integration-test-support
 org.apache.camel.quarkus:camel-quarkus-integration-tests-support-activemq
 org.apache.camel.quarkus:camel-quarkus-irc
@@ -2312,6 +2316,8 @@ org.jboss.resteasy:resteasy-client
 org.jboss.resteasy:resteasy-client-api
 org.jboss.resteasy:resteasy-core
 org.jboss.resteasy:resteasy-core-spi
+org.jboss.resteasy:resteasy-json-binding-provider
+org.jboss.resteasy:resteasy-json-p-provider
 org.jboss.resteasy.microprofile:microprofile-config
 org.jboss.resteasy.microprofile:microprofile-rest-client
 org.jboss.resteasy.microprofile:microprofile-rest-client-base

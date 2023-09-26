@@ -247,7 +247,6 @@ io.quarkus:quarkus-jdbc-mysql
 io.quarkus:quarkus-jdbc-mysql-deployment
 io.quarkus:quarkus-jdbc-postgresql
 io.quarkus:quarkus-jdbc-postgresql-deployment
-io.quarkus:quarkus-jsonb
 io.quarkus:quarkus-jsonb-deployment
 io.quarkus:quarkus-jsonb-spi
 io.quarkus:quarkus-kotlin
@@ -272,7 +271,6 @@ io.smallrye.reactive:smallrye-reactive-messaging-health
 io.smallrye.reactive:smallrye-reactive-messaging-provider
 io.vavr:vavr
 io.vavr:vavr-match
-jakarta.json.bind:jakarta.json.bind-api
 javax.jcr:jcr
 javax.servlet.jsp:jsp-api
 javax.ws.rs:jsr311-api
@@ -870,8 +868,6 @@ org.apache.camel.quarkus:camel-quarkus-xchange
 org.apache.camel.quarkus:camel-quarkus-xchange-deployment
 org.apache.camel.quarkus:camel-quarkus-xj
 org.apache.camel.quarkus:camel-quarkus-xj-deployment
-org.apache.camel.quarkus:camel-quarkus-xml-jaxp
-org.apache.camel.quarkus:camel-quarkus-xml-jaxp-deployment
 org.apache.camel.quarkus:camel-quarkus-xmlsecurity
 org.apache.camel.quarkus:camel-quarkus-xmlsecurity-deployment
 org.apache.camel.quarkus:camel-quarkus-xmpp
@@ -1103,7 +1099,6 @@ org.drools:drools-tms
 org.drools:drools-util
 org.drools:drools-wiring-api
 org.drools:drools-wiring-static
-org.eclipse:yasson
 org.eclipse.californium:californium-core
 org.eclipse.californium:californium-legal
 org.eclipse.californium:element-connector

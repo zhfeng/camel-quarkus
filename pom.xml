@@ -280,6 +280,7 @@
         <module>extensions-jvm</module>
         <module>catalog</module>
         <module>integration-tests-support</module>
+        <module>integration-tests/messaging</module>
         <!-- <module>integration-tests</module> disabled by cq-prod-maven-plugin:prod-excludes -->
         <!-- <module>integration-test-groups</module> disabled by cq-prod-maven-plugin:prod-excludes -->
         <!-- <module>integration-tests-jvm</module> disabled by cq-prod-maven-plugin:prod-excludes -->

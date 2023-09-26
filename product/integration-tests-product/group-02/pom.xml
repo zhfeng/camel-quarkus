@@ -33,7 +33,6 @@
     <name>Camel Quarkus :: Integration Tests :: Product :: Group 02</name>
 
     <modules>
-        <module>../../../integration-test-groups/foundation/dataset</module>
         <module>../../../integration-test-groups/foundation/direct</module>
         <module>../../../integration-test-groups/foundation/eip</module>
         <module>../../../integration-test-groups/foundation/language</module>
@@ -62,11 +61,13 @@
         <module>../../../integration-tests-jvm/controlbus-statistics</module>
         <module>../../../integration-tests-jvm/sap</module>
         <module>../../../integration-tests-jvm/snmp</module>
+        <module>../../../integration-tests/amqp</module>
         <module>../../../integration-tests/avro</module>
         <module>../../../integration-tests/bean-validator</module>
         <module>../../../integration-tests/bindy</module>
         <module>../../../integration-tests/cassandraql</module>
         <module>../../../integration-tests/core-discovery-disabled</module>
         <module>../../../integration-tests/crypto</module>
+        <module>../../../integration-tests/fhir</module>
     </modules>
 </project>

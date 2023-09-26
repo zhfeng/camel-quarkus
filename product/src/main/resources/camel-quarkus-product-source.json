@@ -516,6 +516,11 @@
             "native": "supported",
             "comment": "supported/supported since CEQ 2.13.3; Required by Camel K"
         },
+        "camel-quarkus-xml-jaxp": {
+            "jvm": "supported",
+            "native": "supported",
+            "comment": "supported/supported since CEQ 3.2.0"
+        },
         "camel-quarkus-xpath": {
             "jvm": "supported",
             "native": "supported",
@@ -557,6 +562,7 @@
     "additionalProductizedArtifacts": [
         "org.apache.camel.quarkus:camel-quarkus-catalog",
         "org.apache.camel.quarkus:camel-quarkus-integration-tests-support-activemq",
+        "org.apache.camel.quarkus:camel-quarkus-integration-test-messaging-common",
         "org.apache.camel.quarkus:camel-quarkus-test-list",
         "io.quarkiverse.cxf:quarkus-cxf-rt-ws-security",
         "io.quarkiverse.cxf:quarkus-cxf-services-sts",

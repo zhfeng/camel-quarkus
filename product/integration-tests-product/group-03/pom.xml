@@ -33,7 +33,6 @@
     <name>Camel Quarkus :: Integration Tests :: Product :: Group 03</name>
 
     <modules>
-        <module>../../../integration-tests/fhir</module>
         <module>../../../integration-tests/ftp</module>
         <module>../../../integration-tests/google-bigquery</module>
         <module>../../../integration-tests/google-pubsub</module>
@@ -47,6 +46,9 @@
         <module>../../../integration-tests/java-joor-dsl</module>
         <module>../../../integration-tests/jaxb</module>
         <module>../../../integration-tests/jira</module>
+        <module>../../../integration-tests/jms-artemis-client</module>
+        <module>../../../integration-tests/jms-ibmmq-client</module>
+        <module>../../../integration-tests/jms-qpid-amqp-client</module>
         <module>../../../integration-tests/jpa</module>
         <module>../../../integration-tests/jslt</module>
         <module>../../../integration-tests/jsonpath</module>
