@@ -90,7 +90,7 @@
         <cassandra-driver-test.version>3.7.1</cassandra-driver-test.version><!-- Keep in sync with testcontainers instead of Debezium bom -->
         <bouncycastle.version>1.78.1.redhat-00002</bouncycastle.version><!-- @sync io.quarkus:quarkus-bom:${quarkus.version} dep:org.bouncycastle:bcprov-jdk18on -->
         <brotli.version>0.1.2</brotli.version><!-- @sync org.apache.httpcomponents.client5:httpclient5-parent:${httpclient5.version} prop:brotli.version -->
-        <caffeine.version>3.1.5.redhat-00001</caffeine.version><!-- @sync io.quarkus:quarkus-bom:${quarkus.version} dep:com.github.ben-manes.caffeine:caffeine -->
+        <caffeine.version>3.1.5</caffeine.version><!-- @sync io.quarkus:quarkus-bom:${quarkus-community.version} dep:com.github.ben-manes.caffeine:caffeine -->
         <commons-beanutils.version>${commons-beanutils-version}</commons-beanutils.version>
         <commons-cli.version>1.8.0</commons-cli.version><!-- keep in sync with Quarkus, via quarkus-bootstrap-core -->
         <commons-collections.version>${commons-collections-version}</commons-collections.version>
@@ -188,7 +188,7 @@
         <hamcrest.version>3.0</hamcrest.version><!-- Awaitility and Wiremock -->
         <htmlunit-driver.version>4.13.0</htmlunit-driver.version>
         <pdfbox.version>${pdfbox-version}</pdfbox.version>
-        <sshd.version>2.12.1.redhat-00002</sshd.version><!-- @sync io.quarkus:quarkus-bom:${quarkus.version} dep:org.apache.sshd:sshd-common -->
+        <sshd.version>2.12.1</sshd.version><!-- @sync io.quarkus:quarkus-bom:${quarkus-community.version} dep:org.apache.sshd:sshd-common -->
         <unboundid-ldapsdk.version>7.0.1</unboundid-ldapsdk.version>
         <wiremock.version>3.9.1</wiremock.version>
         <zt-exec.version>1.12</zt-exec.version>
