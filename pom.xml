@@ -289,6 +289,9 @@
 
         <!-- camel-quarkus-maven-plugin -->
         <camel-quarkus.extension.finder.strict>false</camel-quarkus.extension.finder.strict>
+
+        <!-- allow findbugs dependency in the enforcer -->
+        <allow-findbugs>false</allow-findbugs>
     </properties>
 
     <modules>
@@ -435,11 +438,10 @@
                 </plugin>
 
                 <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-resources-plugin</artifactId>
-                  <version>${maven-resources-plugin.version}</version>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven-resources-plugin.version}</version>
                 </plugin>
-
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-plugin</artifactId>
@@ -794,6 +796,31 @@
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-camel-quarkus-enforcer-rules-xslt</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/enforcer-rules</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${maven.multiModuleProjectDirectory}/tooling/enforcer-rules</directory>
+                                            <includes>
+                                                <include>allow-findbugs.xsl</include>
+                                            </includes>
+                                            <filtering>true</filtering>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-enforcer-plugin</artifactId>
                         <dependencies>
                             <dependency>
@@ -828,6 +855,7 @@
                                         </filteredExternalRules>
                                         <filteredExternalRules>
                                             <location>${maven.multiModuleProjectDirectory}/tooling/enforcer-rules/camel-quarkus-banned-dependencies.xml</location>
+                                            <xsltLocation>${project.build.directory}/enforcer-rules/allow-findbugs.xsl</xsltLocation>
                                         </filteredExternalRules>
                                         <filteredExternalRules>
                                             <location>${maven.multiModuleProjectDirectory}/tooling/enforcer-rules/camel-quarkus-banned-dependencies-spring.xml</location>
