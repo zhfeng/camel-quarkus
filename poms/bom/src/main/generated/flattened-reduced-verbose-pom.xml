@@ -7827,22 +7827,12 @@
             <groupId>com.google.code.findbugs</groupId><!-- io.quarkiverse.cxf:quarkus-cxf-bom:3.15.2 -->
             <artifactId>jsr305</artifactId><!-- io.quarkiverse.cxf:quarkus-cxf-bom:3.15.2 -->
           </exclusion>
-          <exclusion>
-            <groupId>com.google.guava</groupId>
-            <artifactId>listenablefuture</artifactId>
-          </exclusion>
         </exclusions>
       </dependency>
       <dependency>
         <groupId>io.quarkiverse.cxf</groupId><!-- io.quarkiverse.cxf:quarkus-cxf-bom:3.15.2 -->
         <artifactId>quarkus-cxf-integration-tracing-opentelemetry-deployment</artifactId><!-- io.quarkiverse.cxf:quarkus-cxf-bom:3.15.2 -->
         <version>3.15.2</version><!-- io.quarkiverse.cxf:quarkus-cxf-bom:3.15.2 -->
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.guava</groupId>
-            <artifactId>listenablefuture</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>io.quarkiverse.cxf</groupId><!-- io.quarkiverse.cxf:quarkus-cxf-bom:3.15.2 -->
