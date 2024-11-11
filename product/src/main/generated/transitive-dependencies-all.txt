@@ -391,7 +391,6 @@ io.etcd:jetcd-grpc
 io.fabric8:generator-annotations
 io.fabric8:kubernetes-client
 io.fabric8:kubernetes-client-api
-io.fabric8:kubernetes-httpclient-okhttp
 io.fabric8:kubernetes-httpclient-vertx
 io.fabric8:kubernetes-model-admissionregistration
 io.fabric8:kubernetes-model-apiextensions

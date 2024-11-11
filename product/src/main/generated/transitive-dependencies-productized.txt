@@ -159,8 +159,6 @@ com.slack.api:slack-api-model
 com.squareup:javapoet
 com.squareup:kotlinpoet
 com.squareup:protoparser
-com.squareup.okhttp3:logging-interceptor
-com.squareup.okhttp3:mockwebserver
 com.squareup.okhttp3:okhttp
 com.squareup.okio:okio
 com.squareup.okio:okio-fakefilesystem
@@ -206,7 +204,6 @@ io.atlassian.util.concurrent:atlassian-util-concurrent
 io.fabric8:generator-annotations
 io.fabric8:kubernetes-client
 io.fabric8:kubernetes-client-api
-io.fabric8:kubernetes-httpclient-okhttp
 io.fabric8:kubernetes-httpclient-vertx
 io.fabric8:kubernetes-model-admissionregistration
 io.fabric8:kubernetes-model-apiextensions

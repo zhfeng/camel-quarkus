@@ -721,6 +721,7 @@
     },
     "ignoredTransitiveDependencies": [
         "net.openhft:affinity",
-        "io.quarkus:quarkus-test-common"
+        "io.quarkus:quarkus-test-common",
+        "io.fabric8:kubernetes-httpclient-okhttp"
     ]
 }
