@@ -101,6 +101,7 @@ com.google.api.grpc:grpc-google-cloud-bigquerystorage-v1
 com.google.api.grpc:grpc-google-cloud-bigquerystorage-v1beta1
 com.google.api.grpc:grpc-google-cloud-bigquerystorage-v1beta2
 com.google.api.grpc:proto-google-cloud-bigquerystorage-v1
+com.google.api.grpc:proto-google-cloud-bigquerystorage-v1alpha
 com.google.api.grpc:proto-google-cloud-bigquerystorage-v1beta1
 com.google.api.grpc:proto-google-cloud-bigquerystorage-v1beta2
 com.google.api.grpc:proto-google-cloud-pubsub-v1
