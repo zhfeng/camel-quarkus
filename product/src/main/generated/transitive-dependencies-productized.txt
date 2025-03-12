@@ -105,7 +105,6 @@ com.google.api.grpc:proto-google-cloud-bigquerystorage-v1beta1
 com.google.api.grpc:proto-google-cloud-bigquerystorage-v1beta2
 com.google.api.grpc:proto-google-cloud-pubsub-v1
 com.google.api.grpc:proto-google-cloud-secretmanager-v1
-com.google.api.grpc:proto-google-cloud-secretmanager-v1beta1
 com.google.api.grpc:proto-google-cloud-secretmanager-v1beta2
 com.google.api.grpc:proto-google-common-protos
 com.google.api.grpc:proto-google-iam-v1
@@ -1133,9 +1132,6 @@ org.apache.flink:flink-annotations
 org.apache.flink:flink-clients
 org.apache.flink:flink-connector-datagen
 org.apache.flink:flink-core
-org.apache.flink:flink-core-api
-org.apache.flink:flink-datastream
-org.apache.flink:flink-datastream-api
 org.apache.flink:flink-file-sink-common
 org.apache.flink:flink-hadoop-fs
 org.apache.flink:flink-java
@@ -1511,7 +1507,6 @@ software.amazon.glue:schema-registry-common
 software.amazon.glue:schema-registry-serde
 software.amazon.kinesis:amazon-kinesis-client
 tech.allegro.schema.json2avro:converter
-tools.profiler:async-profiler
 wsdl4j:wsdl4j
 xalan:serializer
 xalan:xalan
