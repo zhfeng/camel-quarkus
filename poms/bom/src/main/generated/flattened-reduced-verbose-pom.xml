@@ -8310,6 +8310,179 @@
         <version>2.29.14</version><!-- software.amazon.awssdk:bom:2.29.14 -->
       </dependency>
       <dependency>
+        <groupId>io.quarkiverse.artemis</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>quarkus-artemis-core</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>3.6.4</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+      </dependency>
+      <dependency>
+        <groupId>io.quarkiverse.artemis</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>quarkus-artemis-core-deployment</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>3.6.4</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+      </dependency>
+      <dependency>
+        <groupId>io.quarkiverse.artemis</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>quarkus-artemis-jms</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>3.6.4</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+      </dependency>
+      <dependency>
+        <groupId>io.quarkiverse.artemis</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>quarkus-artemis-jms-deployment</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>3.6.4</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+      </dependency>
+      <dependency>
+        <groupId>io.quarkiverse.artemis</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>quarkus-artemis-jms-ra</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>3.6.4</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+      </dependency>
+      <dependency>
+        <groupId>io.quarkiverse.artemis</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>quarkus-artemis-jms-ra-deployment</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>3.6.4</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+      </dependency>
+      <dependency>
+        <groupId>io.quarkiverse.artemis</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>quarkus-test-artemis</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>3.6.4</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>artemis-core-client</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>2.39.0</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <exclusions>
+          <exclusion>
+            <groupId>jakarta.json</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>jakarta.json-api</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.geronimo.specs</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>geronimo-json_1.0_spec</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.johnzon</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>johnzon-core</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>commons-logging</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>commons-logging</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>artemis-jakarta-client</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>2.39.0</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <exclusions>
+          <exclusion>
+            <groupId>jakarta.json</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>jakarta.json-api</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.geronimo.specs</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>geronimo-json_1.0_spec</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.johnzon</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>johnzon-core</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>commons-logging</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>commons-logging</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>artemis-server</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>2.39.0</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>commons-logging</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>io.micrometer</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>micrometer-core</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>jakarta.json</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>jakarta.json-api</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.geronimo.specs</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>geronimo-json_1.0_spec</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.johnzon</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>johnzon-core</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>org.checkerframework</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>checker-qual</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+          <exclusion>
+            <groupId>org.jboss.logmanager</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>jboss-logmanager</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>artemis-amqp-protocol</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>2.39.0</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <exclusions>
+          <exclusion>
+            <groupId>org.apache.activemq</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>artemis-server</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <artifactId>artemis-hqclient-protocol</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <version>2.39.0</version><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+        <exclusions>
+          <exclusion>
+            <groupId>org.apache.activemq</groupId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+            <artifactId>artemis-server</artifactId><!-- io.quarkiverse.artemis:quarkus-artemis-bom:3.6.4 -->
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <artifactId>artemis-commons</artifactId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <version>2.39.0</version><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <artifactId>artemis-jakarta-ra</artifactId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <version>2.39.0</version><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <artifactId>artemis-jakarta-service-extensions</artifactId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <version>2.39.0</version><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <artifactId>artemis-jdbc-store</artifactId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <version>2.39.0</version><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <artifactId>artemis-journal</artifactId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <version>2.39.0</version><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <artifactId>artemis-lockmanager-api</artifactId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <version>2.39.0</version><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+      </dependency>
+      <dependency>
+        <groupId>org.apache.activemq</groupId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <artifactId>artemis-selector</artifactId><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+        <version>2.39.0</version><!-- org.apache.activemq:artemis-bom:2.39.0 -->
+      </dependency>
+      <dependency>
         <groupId>org.apache.qpid</groupId><!-- org.amqphub.quarkus:quarkus-qpid-jms-bom:2.7.1 -->
         <artifactId>qpid-jms-client</artifactId><!-- org.amqphub.quarkus:quarkus-qpid-jms-bom:2.7.1 -->
         <version>2.5.0</version><!-- org.amqphub.quarkus:quarkus-qpid-jms-bom:2.7.1 -->
