@@ -97,4 +97,30 @@ public class RouteConfigurationsTest {
                 .then()
                 .body(is(expected));
     }
+
+    /**
+     * Verifies that exception classes referenced ONLY in XML DSL onException definitions (not in any
+     * Java DSL or YAML DSL route) are auto-detected and registered for reflection in native builds.
+     */
+    @Test
+    public void xmlOnlyOnExceptionShouldBeAutoDetectedForReflection() {
+        String expected = "onException caught XmlOnlyException from XML route";
+        RestAssured.given()
+                .get("/core/route-configurations/xmlOnlyOnException")
+                .then()
+                .body(is(expected));
+    }
+
+    /**
+     * Verifies that exception classes referenced ONLY in YAML DSL onException definitions (not in any
+     * Java DSL or XML DSL route) are auto-detected and registered for reflection in native builds.
+     */
+    @Test
+    public void yamlOnlyOnExceptionShouldBeAutoDetectedForReflection() {
+        String expected = "onException caught YamlOnlyException from YAML route";
+        RestAssured.given()
+                .get("/core/route-configurations/yamlOnlyOnException")
+                .then()
+                .body(is(expected));
+    }
 }

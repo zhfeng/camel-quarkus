@@ -16,7 +16,6 @@
  */
 package org.apache.camel.quarkus.eip.it;
 
-import io.quarkus.runtime.annotations.RegisterForReflection;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Named;
@@ -28,7 +27,6 @@ import org.apache.camel.processor.ThrottlerRejectedExecutionException;
 import org.apache.camel.processor.loadbalancer.RoundRobinLoadBalancer;
 
 @ApplicationScoped
-@RegisterForReflection(targets = ThrottlerRejectedExecutionException.class)
 public class EipRoutes extends RouteBuilder {
 
     public static final int THROTTLE_TIMEOUT = 5000;
