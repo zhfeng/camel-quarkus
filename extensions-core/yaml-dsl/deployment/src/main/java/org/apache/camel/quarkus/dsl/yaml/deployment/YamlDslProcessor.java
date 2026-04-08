@@ -26,6 +26,7 @@ import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.FeatureBuildItem;
 import io.quarkus.deployment.builditem.nativeimage.ReflectiveClassBuildItem;
+import io.quarkus.deployment.pkg.steps.NativeOrNativeSourcesBuild;
 import org.apache.camel.quarkus.core.deployment.spi.CamelRouteResourceBuildItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,7 +50,7 @@ public class YamlDslProcessor {
      *
      * @see <a href="https://github.com/apache/camel-quarkus/issues/7841">camel-quarkus#7841</a>
      */
-    @BuildStep
+    @BuildStep(onlyIf = NativeOrNativeSourcesBuild.class)
     void registerOnExceptionClassesForReflection(
             List<CamelRouteResourceBuildItem> camelRouteResources,
             BuildProducer<ReflectiveClassBuildItem> reflectiveClass) {
