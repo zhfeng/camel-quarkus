@@ -17,22 +17,17 @@
 package org.apache.camel.quarkus.core.it.routeconfigurations;
 
 /**
- * Having an Exception implementation dedicated to route configurations tests
- * reinforce tests isolation. It's especially useful when the foundation tests
- * are running grouped.
- *
- * Note: This class intentionally does NOT use {@code @RegisterForReflection}.
- * The build step in {@code CamelNativeImageProcessor#registerOnExceptionClassesForReflection}
- * auto-detects it from the {@code onException(RouteConfigurationsException.class)} calls
- * in the Java DSL route builders.
+ * Exception class that is ONLY referenced from YAML DSL route definitions,
+ * never from Java DSL or XML DSL. This tests that the YAML DSL build-time
+ * parser correctly detects and registers exception classes for native image reflection.
  *
  * @see <a href="https://github.com/apache/camel-quarkus/issues/7841">camel-quarkus#7841</a>
  */
-public class RouteConfigurationsException extends Exception {
+public class YamlOnlyException extends Exception {
 
     private static final long serialVersionUID = 1L;
 
-    public RouteConfigurationsException(String message) {
+    public YamlOnlyException(String message) {
         super(message);
     }
 

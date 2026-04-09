@@ -70,4 +70,18 @@ public class RouteConfigurationsResource {
         return producerTemplate.requestBody("direct:yamlRoute", null, String.class);
     }
 
+    @Path("/route-configurations/xmlOnlyOnException")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String xmlOnlyOnException() {
+        return producerTemplate.requestBody("direct:xmlOnlyOnException", null, String.class);
+    }
+
+    @Path("/route-configurations/yamlOnlyOnException")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String yamlOnlyOnException() {
+        return producerTemplate.requestBody("direct:yamlOnlyOnException", null, String.class);
+    }
+
 }

@@ -17,11 +17,15 @@
 package org.apache.camel.quarkus.core.deployment;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,6 +37,7 @@ import io.quarkus.deployment.builditem.CombinedIndexBuildItem;
 import io.quarkus.deployment.builditem.nativeimage.NativeImageResourceBuildItem;
 import io.quarkus.deployment.builditem.nativeimage.ReflectiveClassBuildItem;
 import io.quarkus.deployment.builditem.nativeimage.ReflectiveMethodBuildItem;
+import io.quarkus.deployment.pkg.steps.NativeOrNativeSourcesBuild;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Component;
 import org.apache.camel.Consumer;
@@ -64,6 +69,11 @@ import org.jboss.jandex.AnnotationValue;
 import org.jboss.jandex.ClassInfo;
 import org.jboss.jandex.DotName;
 import org.jboss.jandex.IndexView;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,6 +81,11 @@ import static org.apache.commons.lang3.ClassUtils.getPackageName;
 
 public class CamelNativeImageProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(CamelNativeImageProcessor.class);
+
+    private static final DotName THROWABLE_TYPE = DotName.createSimple(Throwable.class.getName());
+
+    private static final Set<String> EXCEPTION_REGISTRATION_METHODS = Set.of("onException", "doCatch", "exception",
+            "throwException");
 
     private static final List<Class<?>> CAMEL_REFLECTIVE_CLASSES = List.<Class<?>> of(
             Endpoint.class,
@@ -283,6 +298,135 @@ public class CamelNativeImageProcessor {
                     ReflectiveClassBuildItem.builder(camelRoutesBuilderClassBuildItem.getDotName().toString()).methods()
                             .fields().build());
         });
+    }
+
+    /**
+     * Scans RouteBuilder bytecode to auto-detect exception classes used in onException() and doCatch() calls, and
+     * registers them for reflection. This is needed because Camel stores exception class names as strings in the route
+     * model and resolves them back to Class objects at runtime via ClassLoader.loadClass().
+     *
+     * @see <a href="https://github.com/apache/camel-quarkus/issues/7841">camel-quarkus#7841</a>
+     */
+    @BuildStep(onlyIf = NativeOrNativeSourcesBuild.class)
+    void registerOnExceptionClassesForReflection(
+            CombinedIndexBuildItem combinedIndex,
+            List<CamelRoutesBuilderClassBuildItem> camelRoutesBuilders,
+            BuildProducer<ReflectiveClassBuildItem> reflectiveClass) {
+
+        final IndexView index = combinedIndex.getIndex();
+        final Set<String> confirmedClasses = new HashSet<>();
+
+        for (CamelRoutesBuilderClassBuildItem routeBuilder : camelRoutesBuilders) {
+            String className = routeBuilder.getDotName().toString();
+            String resourceName = className.replace('.', '/') + ".class";
+
+            try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName)) {
+                if (is == null) {
+                    LOGGER.debug("Could not read bytecode for RouteBuilder: {}", className);
+                    continue;
+                }
+                ClassReader reader = new ClassReader(is);
+                reader.accept(new ClassVisitor(Opcodes.ASM9) {
+                    @Override
+                    public MethodVisitor visitMethod(int access, String name, String descriptor,
+                            String signature, String[] exceptions) {
+                        return new ExceptionClassDetector(confirmedClasses, index);
+                    }
+                }, ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
+            } catch (IOException e) {
+                LOGGER.debug("Failed to scan bytecode for RouteBuilder: {}", className, e);
+            }
+        }
+
+        if (!confirmedClasses.isEmpty()) {
+            LOGGER.debug("Auto-detected onException/doCatch classes for reflection: {}", confirmedClasses);
+            for (String cls : confirmedClasses) {
+                reflectiveClass.produce(ReflectiveClassBuildItem.builder(cls).build());
+            }
+        }
+    }
+
+    /**
+     * Checks whether the given class name is a Throwable subclass. First checks the Jandex index (covers application
+     * and indexed dependency classes), then falls back to Class.forName() for JDK/unindexed classes.
+     */
+    static boolean isThrowable(String className, IndexView index) {
+        // Check via Jandex index first (covers application and indexed dependency classes)
+        ClassInfo classInfo = index.getClassByName(DotName.createSimple(className));
+        if (classInfo != null) {
+            return isThrowableInIndex(classInfo, index);
+        }
+
+        // Fall back to Class.forName() for JDK and unindexed library classes
+        try {
+            Class<?> clazz = Thread.currentThread().getContextClassLoader().loadClass(className);
+            return Throwable.class.isAssignableFrom(clazz);
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
+
+    private static boolean isThrowableInIndex(ClassInfo classInfo, IndexView index) {
+        DotName current = classInfo.name();
+        while (current != null) {
+            if (THROWABLE_TYPE.equals(current)) {
+                return true;
+            }
+            ClassInfo info = index.getClassByName(current);
+            if (info == null) {
+                // Class not in index, try Class.forName() for the remaining hierarchy
+                try {
+                    Class<?> clazz = Thread.currentThread().getContextClassLoader().loadClass(current.toString());
+                    return Throwable.class.isAssignableFrom(clazz);
+                } catch (ClassNotFoundException e) {
+                    return false;
+                }
+            }
+            current = info.superName();
+        }
+        return false;
+    }
+
+    /**
+     * ASM MethodVisitor that detects Throwable class constants passed to onException/doCatch/exception method calls.
+     * <p>
+     * It tracks class constants loaded via LDC instructions in a pending set. When a method call instruction is
+     * visited:
+     * <ul>
+     * <li>If the method is onException/doCatch/exception with a Class parameter, all pending Throwable classes are
+     * confirmed.</li>
+     * <li>The pending set is cleared after any method call, so unrelated class references are discarded.</li>
+     * </ul>
+     */
+    static class ExceptionClassDetector extends MethodVisitor {
+        private final Set<String> pendingClasses = new LinkedHashSet<>();
+        private final Set<String> confirmedClasses;
+        private final IndexView index;
+
+        ExceptionClassDetector(Set<String> confirmedClasses, IndexView index) {
+            super(Opcodes.ASM9);
+            this.confirmedClasses = confirmedClasses;
+            this.index = index;
+        }
+
+        @Override
+        public void visitLdcInsn(Object value) {
+            if (value instanceof Type type && type.getSort() == Type.OBJECT) {
+                String className = type.getClassName();
+                if (isThrowable(className, index)) {
+                    pendingClasses.add(className);
+                }
+            }
+        }
+
+        @Override
+        public void visitMethodInsn(int opcode, String owner, String name,
+                String descriptor, boolean isInterface) {
+            if (EXCEPTION_REGISTRATION_METHODS.contains(name) && descriptor.contains("Ljava/lang/Class;")) {
+                confirmedClasses.addAll(pendingClasses);
+            }
+            pendingClasses.clear();
+        }
     }
 
 }
